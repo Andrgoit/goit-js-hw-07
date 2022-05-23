@@ -27,6 +27,9 @@ galleryContainer.addEventListener("click", openGalleryItem);
 
 function openGalleryItem(e) {
   e.preventDefault();
+  if (!e.target.classList.contains("gallery__image")) {
+    return;
+  }
   const instance = basicLightbox.create(`
       <img src="${e.target.dataset.source}" alt="${e.target.dataset.description}">
   `);
